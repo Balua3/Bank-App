@@ -1,0 +1,30 @@
+
+<div class="wrapper">
+    <div class="logo">
+        <img src="../../assets/pngegg.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        My bank
+        <h6>{{aim}}</h6>
+                <!-- string interpolation -->
+    </div>
+    <form [formGroup]="loginForm" class="p-3 mt-3">
+        <div class="form-field d-flex align-items-center">
+            <input formControlName="acno" type="text" name="acno" id="login_acno" [placeholder]="account">
+                                                                     <!-- property binding -->
+        </div>    
+        <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched" style="color: red;">Invalid Account Number</div>
+
+        <div class="form-field d-flex align-items-center">
+            <input formControlName="pswd" type="password" name="password" id="login_pswd" placeholder="Password">
+        </div>
+        <div *ngIf="this.loginForm.get('pswd')?.errors && this.loginForm.get('pswd')?.touched" style="color: red;">Invalid Password</div>
+
+        <button class="btn mt-3" (click)="login()" type="button">Login</button>
+    </form>
+    <div class="text-center fs-5 mt-3">
+        <a routerLink="register">Sign up</a>
+    </div>
+</div>
+
+<!-- <app-register></app-register> -->

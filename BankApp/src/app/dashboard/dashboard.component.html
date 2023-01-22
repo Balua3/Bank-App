@@ -1,0 +1,78 @@
+
+<input type="button"class="btn btn-warning" value="Logout" (click)="logout()" style="float:right;">
+<input type="button" class="btn btn-danger" value="Delete" (click)="delete()" style="float: right;">
+
+
+<h1 style="color: aliceblue;">Welcome {{user}}</h1>
+<button class="btn btn-outline-secondary"> <a routerLink="/transaction">View transaction History</a></button><br>
+
+<app-delete [item]="acno" (onCancel)="onCancel()" (onDelete)="onDelete($event)"></app-delete>
+<h4 style="color: aliceblue;">System date : {{sdate| date:'short'}}</h4>
+<div [ngClass]="acno ? 'style1': '' " class="parent">
+    <div class="child">
+
+<div class="wrapper">
+    <div class="logo">
+        <img src="../../assets/pngegg.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        Deposit
+    </div>
+    <form [formGroup]="depositForm" class="p-3 mt-3">
+       
+        <div class="form-field d-flex align-items-center">
+            <input formControlName="acno" type="text" name="Account number" id="reg_acno" placeholder="Account number">
+        </div>
+        <div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched" style="color: red;">Invalid Account Number</div>
+
+        <div class="form-field d-flex align-items-center">
+            <input formControlName="password" type="password" name="password" id="reg_pswd" placeholder="Password">
+        </div>
+        <div *ngIf="this.depositForm.get('password')?.errors && this.depositForm.get('password')?.touched" style="color: red;">Invalid Password</div>
+
+        <div class="form-field d-flex align-items-center">
+            <input formControlName="amount" type="text" name="userName" id="reg_name" placeholder="Amount">
+        </div>
+        <div *ngIf="this.depositForm.get('amount')?.errors && this.depositForm.get('amount')?.touched" style="color: red;">Invalid Amount</div>
+
+        <button class="btn mt-3" (click)="deposit()" type="button">Deposit</button>
+    </form>
+    <!-- <div class="text-center fs-6">
+        <a routerLink="">Sign in</a>
+    </div> -->
+</div>
+    </div>
+    <div class="child">
+
+<div class="wrapper">
+    <div class="logo">
+        <img src="../../assets/pngegg.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        Withdraw
+    </div>
+    <form [formGroup]="withdrawForm" class="p-3 mt-3">
+        
+        <div class="form-field d-flex align-items-center">
+            <input formControlName="acno" type="number" name="Account number" id="reg_acno" placeholder="Account number">
+        </div>
+        <div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched" style="color: red;">Invalid Account Number</div>
+
+        <div class="form-field d-flex align-items-center">
+            <input formControlName="password" type="password" name="password" id="reg_pswd" placeholder="Password">
+        </div>
+        <div *ngIf="this.depositForm.get('password')?.errors && this.depositForm.get('password')?.touched" style="color: red;">Invalid Password</div>
+
+        <div class="form-field d-flex align-items-center">
+            <input formControlName="amount" type="number" name="userName" id="reg_name" placeholder="Amount">
+        </div>
+        <div *ngIf="this.depositForm.get('amount')?.errors && this.depositForm.get('amount')?.touched" style="color: red;">Invalid Amount</div>
+
+        <button class="btn mt-3" (click)="withdraw()" type="button">Withdraw</button>
+    </form>
+    <!-- <div class="text-center fs-6">
+        <a routerLink="">Sign in</a>
+    </div> -->
+</div>
+    </div>
+</div>

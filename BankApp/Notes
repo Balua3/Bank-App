@@ -1,0 +1,115 @@
+                                     Angular
+      I                        Bank App In Angular
+                        Front end : Angular
+                        Backend : Nodejs(Express)
+                        DataBase : MongoDB
+
+      Basic Building Blocks
+
+      1. Module - To import 3rd party libraries
+      2. Component - To create html css and ts files
+
+            Basic Commands
+        
+    1. Create a project - ng new project_name
+    2. Create a component - ng g c component_name
+    3. Run - ng serve --open
+    
+1) Data Binding
+
+To share data inside the component
+
+ts - component and html - view 
+
+      1.1) One way data binding (ts->html or html->ts file)
+
+            a) Component to view
+                        a.1) String interpolation - {{expression}}
+                        a.2) Property binding - [attribute_name]="property"
+
+            b) View to component
+                        b.1) Event binding - (event_name)="function name"
+                        b.2) Event binding using $event - (event_name)="function name($event)
+                        b.3) Event binding using template referencing cariable - #variable_name
+
+      1.2) Two way binding 
+      Data share in both directions(ts->html and html->ts)
+
+      ngModel (library) - import from FormsModule
+
+      import ngModel from FormsModule
+
+      2) Angular routing
+         To set path for a component
+         {
+            path:'',component:LoginComponent
+            //'' - 4200 login
+         },
+         {
+            path:'dashboard',component:DashboardComponent
+            //'' - 4200/dashboard - register
+         }
+      -Use router outlet selector inside the root component
+
+      3) Dependancy injection
+
+      To share data between two components
+      -Here we use constructor to achive this concept
+      eg:login to dashboard
+
+      4) Angular Services
+      To hold redundant data
+
+      to create a service in angular - ng g s service_name 
+
+      5) Angular Directives
+            
+            To manipulate DOM
+
+         1) Component Directives
+
+         2) Structural Directives
+            (eg: table structure)
+
+               a) *ngFor
+
+      6) Angular FormsModule
+
+      a)template Driven forms(designing of html page)
+      b)Model driven forms(ts file model, design ->html page)
+
+            - For Advanced Validation
+            -a) Reactive Forms Module
+                  -group,array,controller
+                  -import Reactive Forms modules
+
+      7) Local Storage
+
+            1) setItem
+            2) getItem
+            3) removeItem
+
+      8) Parent Child Communication
+
+      parent - DashboardComponent
+      Child - DeleteComponent
+
+      parent to child Communication - @Input()
+      child to parent Communication - @Output()
+
+      9) Angular Pipes
+
+      10) Frontend and Backend Connection
+            HTTPClientModule -
+            1) Import httpclientModule in app.module.ts
+            2) Inject httpclientModule in dataService
+            3) using httpclient to make API calls
+
+      11) Asynchronous call - RxJs -
+
+            RxJs - Reactive Extension For JavaScript
+                  Ts                            Js
+              OBSERVABLE                           PROMISE
+            1) Resolve - subscribe()                .then()
+            2) Reject - catch                         catch
+            
